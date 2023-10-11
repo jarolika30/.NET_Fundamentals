@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "ConcatUserNameHelper/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/ConcatUserNameHelper.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ConcatUserNameHelper.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "ConcatUserNameHelper/1.0.0": {
+      "type": "project",
+      "path": "../ConcatUserNameHelper/ConcatUserNameHelper.csproj",
+      "msbuildProject": "../ConcatUserNameHelper/ConcatUserNameHelper.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "ConcatUserNameHelper >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Katsiaryna_Staurova\\.nuget\\packages\\": {}
@@ -33,7 +52,11 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Doc\\Projects\\axs-new\\.NET_cource\\.NET_Fundamentals\\ConcatUserNameHelper\\ConcatUserNameHelper.csproj": {
+              "projectPath": "D:\\Doc\\Projects\\axs-new\\.NET_cource\\.NET_Fundamentals\\ConcatUserNameHelper\\ConcatUserNameHelper.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

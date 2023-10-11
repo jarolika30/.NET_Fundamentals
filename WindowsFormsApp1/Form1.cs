@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ConcatUserNameHelper;
 
 namespace WindowsFormsApp1
 {
@@ -19,8 +20,9 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            DateTimeDecorator dateTimeDecorator = new DateTimeDecorator();
             string name = textBox1.Text;
-            string output = $"Hello, {name}!";
+            string output = dateTimeDecorator.ConcatUserName(name);
             label2.Text = output;
         }
     }

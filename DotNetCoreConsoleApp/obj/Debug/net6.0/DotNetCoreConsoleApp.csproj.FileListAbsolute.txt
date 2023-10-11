@@ -13,3 +13,6 @@ D:\Doc\Projects\axs-new\.NET_cource\.NET_Fundamentals\DotNetCoreConsoleApp\obj\D
 D:\Doc\Projects\axs-new\.NET_cource\.NET_Fundamentals\DotNetCoreConsoleApp\obj\Debug\net6.0\DotNetCoreConsoleApp.pdb
 D:\Doc\Projects\axs-new\.NET_cource\.NET_Fundamentals\DotNetCoreConsoleApp\obj\Debug\net6.0\DotNetCoreConsoleApp.genruntimeconfig.cache
 D:\Doc\Projects\axs-new\.NET_cource\.NET_Fundamentals\DotNetCoreConsoleApp\obj\Debug\net6.0\ref\DotNetCoreConsoleApp.dll
+D:\Doc\Projects\axs-new\.NET_cource\.NET_Fundamentals\DotNetCoreConsoleApp\bin\Debug\net6.0\ConcatUserNameHelper.dll
+D:\Doc\Projects\axs-new\.NET_cource\.NET_Fundamentals\DotNetCoreConsoleApp\bin\Debug\net6.0\ConcatUserNameHelper.pdb
+D:\Doc\Projects\axs-new\.NET_cource\.NET_Fundamentals\DotNetCoreConsoleApp\obj\Debug\net6.0\DotNetCoreConsoleApp.csproj.CopyComplete

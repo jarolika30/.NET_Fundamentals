@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v6.0": {
       "DotNetCoreConsoleApp/1.0.0": {
+        "dependencies": {
+          "ConcatUserNameHelper": "1.0.0"
+        },
         "runtime": {
           "DotNetCoreConsoleApp.dll": {}
+        }
+      },
+      "ConcatUserNameHelper/1.0.0": {
+        "runtime": {
+          "ConcatUserNameHelper.dll": {}
         }
       }
     }
   },
   "libraries": {
     "DotNetCoreConsoleApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ConcatUserNameHelper/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

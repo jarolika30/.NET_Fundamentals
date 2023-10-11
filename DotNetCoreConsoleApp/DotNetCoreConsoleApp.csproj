@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ConcatUserNameHelper\ConcatUserNameHelper.csproj" />
+  </ItemGroup>
+
 </Project>
