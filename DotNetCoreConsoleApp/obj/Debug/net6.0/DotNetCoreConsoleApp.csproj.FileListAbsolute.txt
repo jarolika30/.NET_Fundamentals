@@ -1,0 +1,15 @@
+D:\Doc\Projects\axs-new\.NET_cource\.NET_Fundamentals\DotNetCoreConsoleApp\bin\Debug\net6.0\DotNetCoreConsoleApp.exe
+D:\Doc\Projects\axs-new\.NET_cource\.NET_Fundamentals\DotNetCoreConsoleApp\bin\Debug\net6.0\DotNetCoreConsoleApp.deps.json
+D:\Doc\Projects\axs-new\.NET_cource\.NET_Fundamentals\DotNetCoreConsoleApp\bin\Debug\net6.0\DotNetCoreConsoleApp.runtimeconfig.json
+D:\Doc\Projects\axs-new\.NET_cource\.NET_Fundamentals\DotNetCoreConsoleApp\bin\Debug\net6.0\DotNetCoreConsoleApp.dll
+D:\Doc\Projects\axs-new\.NET_cource\.NET_Fundamentals\DotNetCoreConsoleApp\bin\Debug\net6.0\DotNetCoreConsoleApp.pdb
+D:\Doc\Projects\axs-new\.NET_cource\.NET_Fundamentals\DotNetCoreConsoleApp\obj\Debug\net6.0\DotNetCoreConsoleApp.csproj.AssemblyReference.cache
+D:\Doc\Projects\axs-new\.NET_cource\.NET_Fundamentals\DotNetCoreConsoleApp\obj\Debug\net6.0\DotNetCoreConsoleApp.GeneratedMSBuildEditorConfig.editorconfig
+D:\Doc\Projects\axs-new\.NET_cource\.NET_Fundamentals\DotNetCoreConsoleApp\obj\Debug\net6.0\DotNetCoreConsoleApp.AssemblyInfoInputs.cache
+D:\Doc\Projects\axs-new\.NET_cource\.NET_Fundamentals\DotNetCoreConsoleApp\obj\Debug\net6.0\DotNetCoreConsoleApp.AssemblyInfo.cs
+D:\Doc\Projects\axs-new\.NET_cource\.NET_Fundamentals\DotNetCoreConsoleApp\obj\Debug\net6.0\DotNetCoreConsoleApp.csproj.CoreCompileInputs.cache
+D:\Doc\Projects\axs-new\.NET_cource\.NET_Fundamentals\DotNetCoreConsoleApp\obj\Debug\net6.0\DotNetCoreConsoleApp.dll
+D:\Doc\Projects\axs-new\.NET_cource\.NET_Fundamentals\DotNetCoreConsoleApp\obj\Debug\net6.0\refint\DotNetCoreConsoleApp.dll
+D:\Doc\Projects\axs-new\.NET_cource\.NET_Fundamentals\DotNetCoreConsoleApp\obj\Debug\net6.0\DotNetCoreConsoleApp.pdb
+D:\Doc\Projects\axs-new\.NET_cource\.NET_Fundamentals\DotNetCoreConsoleApp\obj\Debug\net6.0\DotNetCoreConsoleApp.genruntimeconfig.cache
+D:\Doc\Projects\axs-new\.NET_cource\.NET_Fundamentals\DotNetCoreConsoleApp\obj\Debug\net6.0\ref\DotNetCoreConsoleApp.dll
