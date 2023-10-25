@@ -38,15 +38,16 @@ namespace Task1
         /// otherwise -1.</returns>
         public static int IndexOf(Product[] products, Predicate<Product> predicate)
         {
-            var predicateValue = predicate ?? throw new ArgumentNullException("Nothing to find");
-
-            if (products == null) throw new ArgumentNullException("Nothing to find");
+            if (products == null || predicate == null)
+            {
+                throw new ArgumentNullException("Nothing to find");
+            }
 
             for (int i = 0; i <= products.Length - 1; i++)
             {
                 var product = products[i];
 
-                if (predicateValue(product))
+                if (predicate(product))
                 {
                     return i;
                 }
