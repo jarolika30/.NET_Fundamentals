@@ -39,7 +39,8 @@ namespace Task1
         public static int IndexOf(Product[] products, Predicate<Product> predicate)
         {
             var predicateValue = predicate ?? throw new ArgumentNullException("Nothing to find");
-            var productsValue = products ?? throw new ArgumentNullException("Nothing to find");
+
+            if (products == null) throw new ArgumentNullException("Nothing to find");
 
             for (int i = 0; i <= products.Length - 1; i++)
             {
