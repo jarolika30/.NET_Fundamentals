@@ -19,7 +19,7 @@ namespace Task1
                     break;
                 }
 
-                CharParser.printFirstChar(null);
+                CharParser.printFirstChar(input);
             }
         }
     }
