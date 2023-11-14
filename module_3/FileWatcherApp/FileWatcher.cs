@@ -7,56 +7,74 @@ using System.IO;
 
 namespace FileWatcherApp
 {
-    internal class FileWatcher
+    public class FileWatcher
     {
         private FileSystemWatcher fileSystemWatcher1;
+        private Func<string, bool> filter;
 
-        internal FileWatcher ()
+        public FileWatcher ()
         {
+            this.fileSystemWatcher1 = new FileSystemWatcher();
+        }
+
+        public FileWatcher (Func<string, bool> filter)
+        {
+            this.filter = filter;
             this.fileSystemWatcher1 = new FileSystemWatcher();
         }
 
         public void startfileSystemWatcher()
         {
-            this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.IncludeSubdirectories = true;
-            this.fileSystemWatcher1.Changed += new FileSystemEventHandler(this.fileWasChanged);
-            this.fileSystemWatcher1.Created += new FileSystemEventHandler(this.fileWasCreated);
-            this.fileSystemWatcher1.Deleted += new FileSystemEventHandler(this.fileWasDeleted);
-            this.fileSystemWatcher1.Error += new ErrorEventHandler(this.fileSystemError);
-            this.fileSystemWatcher1.Renamed += new RenamedEventHandler(this.fileWasRenamed);
+            this.fileSystemWatcher1.Created += this.FileWasCreated;
+            this.fileSystemWatcher1.Deleted += this.FileWasDeleted;
         }
 
-        public void setFolderNameToWatch(string name)
+        public void setFolderNameToWatch(string folderPath)
         {
             // C:\\Users\\Katsiaryna_Staurova\\Documents
-            string folderName = name;
-            this.fileSystemWatcher1.Path = folderName;
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+            this.fileSystemWatcher1.Path = folderPath;
         }
-
-        private void fileWasChanged(object sender, FileSystemEventArgs e)
+        public void Start()
         {
-            MessageBox.Show($"File {e.Name} was changed. \n Full path: {e.FullPath}");
+            this.fileSystemWatcher1.EnableRaisingEvents = true;
+
         }
 
-        private void fileWasCreated(object sender, FileSystemEventArgs e)
+        public bool Validate(string fileName)
+        {
+            return this.filter(fileName);
+        }
+
+        private event File FileWasChanged(object sender, FileSystemEventArgs e)
+        {
+            bool valid = this.fileWatcher.fileWasChanged(e.Name);
+                this.richTextBox1.Text += $"File {e.Name} was created.\nFull path: {e.FullPath}";
+        }
+
+        private void FileWasCreated(object sender, FileSystemEventArgs e)
         {
             MessageBox.Show($"File {e.Name} was created.\nFull path: {e.FullPath}");
         }
 
-        private void fileWasDeleted(object sender, FileSystemEventArgs e)
+        private void FileWasDeleted(object sender, FileSystemEventArgs e)
         {
             MessageBox.Show($"File {e.Name} was deleted.\nFull path: {e.FullPath}");
         }
 
-        private void fileSystemError(object sender, ErrorEventArgs e)
+        private void FilteredFileWasCreated(object sender, ErrorEventArgs e)
         {
             MessageBox.Show($"Sorry, an error occurs during the file processing.\nError: {e.GetException()}");
         }
 
-        private void fileWasRenamed(object sender, RenamedEventArgs e)
+        private void FilteredFileWasDeleted(object sender, RenamedEventArgs e)
         {
             MessageBox.Show($"File {e.Name} was renamed.\nFull path: {e.FullPath}");
         }
+
     }
 }

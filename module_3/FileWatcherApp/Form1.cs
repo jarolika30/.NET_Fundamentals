@@ -9,13 +9,14 @@ namespace FileWatcherApp
 
         private void button1_Click(object sender, EventArgs e)
         {
+            openFileDialog1.ShowDialog();
             string folderName = textBox1.Text;
             string output = $"You selected {folderName?.ToUpper()} folder to watch";
             label2.Text = output;
 
-            var watcher = new FileWatcher();
-            watcher.setFolderNameToWatch(folderName ?? String.Empty);
-            watcher.startfileSystemWatcher();
+            var form2 = new Form2(folderName);
+            this.Hide();
+            form2.Show();
         }
     }
 }
