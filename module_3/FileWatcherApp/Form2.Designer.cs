@@ -175,7 +175,7 @@
 
         private Button button1;
         private TextBox textBox1;
-        private RichTextBox richTextBox1;
+        public RichTextBox richTextBox1;
         private Button button2;
         private CheckBox checkBox1;
         private CheckBox checkBox2;

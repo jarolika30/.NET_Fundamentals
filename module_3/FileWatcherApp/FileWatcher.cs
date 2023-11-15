@@ -12,6 +12,8 @@ namespace FileWatcherApp
         private FileSystemWatcher fileSystemWatcher1;
         public delegate void FileMonitoring(string message);
         public event FileMonitoring LogWork;
+        public event EventHandler Start;
+        public event EventHandler Stop;
 
         internal FileWatcher ()
         {
@@ -27,6 +29,8 @@ namespace FileWatcherApp
             fileSystemWatcher1.Deleted += new FileSystemEventHandler(FileWasDeleted);
             fileSystemWatcher1.Error += new ErrorEventHandler(FileSystemError);
             fileSystemWatcher1.Renamed += new RenamedEventHandler(FileWasRenamed);
+
+            Start?.Invoke(this, new EventArgs());
         }
 
         public void SetFolderNameToWatch(string name)
@@ -43,6 +47,13 @@ namespace FileWatcherApp
             fileSystemWatcher1.Deleted -= new FileSystemEventHandler(FileWasDeleted);
             fileSystemWatcher1.Error -= new ErrorEventHandler(FileSystemError);
             fileSystemWatcher1.Renamed -= new RenamedEventHandler(FileWasRenamed);
+
+            Stop?.Invoke(this, new EventArgs());
+        }
+
+        public void Filter (string filter)
+        {
+            fileSystemWatcher1.Filter = filter;
         }
 
         private void FileWasChanged(object sender, FileSystemEventArgs e)

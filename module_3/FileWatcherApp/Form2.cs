@@ -13,10 +13,13 @@ namespace FileWatcherApp
     public partial class Form2 : Form
     {
         private FileWatcher watcher;
-
+        // public delegate void FileMonitoring(string message);
+        // public static event FileMonitoring LogWork;
         public Form2()
         {
             watcher = new FileWatcher();
+            watcher.Start += StartHandler;
+            watcher.Stop += StopHandler;
             InitializeComponent();
         }
 
@@ -56,7 +59,7 @@ namespace FileWatcherApp
         private void button1_Click(object sender, EventArgs e)
         {
             string folderName = textBox1.Text;
-            richTextBox1.Text += $"You have started your FileWatcher...{Environment.NewLine}";
+            // richTextBox1.Text += $"You have started your FileWatcher...{Environment.NewLine}";
             
             if (!string.IsNullOrEmpty(folderName))
             {
@@ -71,13 +74,23 @@ namespace FileWatcherApp
 
         private void button5_Click(object sender, EventArgs e)
         {
-            richTextBox1.Text += $"You have stopped your FileWatcher... {Environment.NewLine}";
+            // richTextBox1.Text += $"You have stopped your FileWatcher... {Environment.NewLine}";
             watcher.StopFileWatcher();
         }
 
         private void fileChangeHandler(string text)
         {
             richTextBox1.Text += text;
+        }
+
+        private void StopHandler(object sender, EventArgs e)
+        {
+            richTextBox1.Text += $"You have stopped your FileWatcher... {Environment.NewLine}";
+        }
+
+        private void StartHandler(object sender, EventArgs e)
+        {
+            richTextBox1.Text += $"You have started your FileWatcher...{Environment.NewLine}";
         }
     }
 }
