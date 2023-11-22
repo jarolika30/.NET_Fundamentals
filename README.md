@@ -54,3 +54,25 @@ A tracepoint is a breakpoint that prints a message to the Output window. A trace
 - What are debug and release build configurations?
 Visual Studio projects have separate release and debug configurations for the program. You build the debug version for debugging and the release version for the final release distribution. In debug configuration, your program compiles with full symbolic debug information and no optimization. Optimization complicates debugging, because the relationship between source code and generated instructions is more complex.
 The release configuration of your program has no symbolic debug information and is fully optimized.
+
+# Reflection
+
+- What is reflection in .NET? 
+
+In .NET, reflection is a powerful feature that allows us to inspect and manipulate types, classes, methods, properties, and other members of assemblies at runtime. With reflection, we can access and analyze metadata about the types defined in an assembly, and even invoke methods, create instances, or modify properties dynamically without knowing their details at compile time.
+
+- What does reflection allow you to do? 
+
+.NET Framework's Reflection API allows to fetch Type (Assembly) information at runtime or programmatically. We can also implement late binding using .NET Reflection. At runtime, Reflection uses the PE file to read the metadata about an assembly. Reflection enables you to use code that was not available at compile time. .NET Reflection allows application to collect information about itself and also manipulate on itself. It can be used effectively to find all the types in an assembly and/or dynamically invoke methods in an assembly. This includes information about the type, properties, methods and events of an object. With reflection, we can dynamically create an instance of a type, bind the type to an existing object, or get the type from an existing object and invoke its methods or access its fields and properties. We can also access attributes using Reflection. In short, Reflection can be very useful if you don't know much about an assembly.
+
+- What are fully qualified type names? 
+
+You must specify type names to have valid input to various reflection operations. A fully qualified type name consists of an assembly name specification, a namespace specification, and a type name. Type name specifications are used by methods such as Type.GetType, Module.GetType, ModuleBuilder.GetType, and Assembly.GetType.
+
+- What examples of practical application of reflection can you imagine? 
+
+Typical uses of reflection include the following: Use Assembly to define and load assemblies, load modules that are listed in the assembly manifest, and locate a type from this assembly and create an instance of it.
+
+- Is it possible to get information about private fields/methods using reflection? 
+Yes, .NET Reflection can be used to get hold of non-Public members of a class instance. The System.Type class provides various methods that can be used to generate objects or interact with members
+
