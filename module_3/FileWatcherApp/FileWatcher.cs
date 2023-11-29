@@ -9,76 +9,82 @@ namespace FileWatcherApp
 {
     public class FileWatcher
     {
-        private FileSystemWatcher fileSystemWatcher1;
         public delegate void FileMonitoring(string message);
+        public delegate void StartHandler();
+        public delegate void StopHandler();
         public event FileMonitoring LogWork;
-        public event EventHandler Start;
-        public event EventHandler Stop;
+        public event StartHandler Start;
+        public event StopHandler Stop;
+        private string folder;
+        private bool isStarted;
+        private List<string> fileFilter;
+        private FileInfo[] files;
 
         internal FileWatcher ()
         {
-            fileSystemWatcher1 = new FileSystemWatcher();
+            isStarted = false;
         }
 
         public void StartfileSystemWatcher()
         {
-            fileSystemWatcher1.EnableRaisingEvents = true;
-            fileSystemWatcher1.IncludeSubdirectories = true;
-            fileSystemWatcher1.Changed += new FileSystemEventHandler(FileWasChanged);
-            fileSystemWatcher1.Created += new FileSystemEventHandler(FileWasCreated);
-            fileSystemWatcher1.Deleted += new FileSystemEventHandler(FileWasDeleted);
-            fileSystemWatcher1.Error += new ErrorEventHandler(FileSystemError);
-            fileSystemWatcher1.Renamed += new RenamedEventHandler(FileWasRenamed);
+            isStarted = true;
+            Start?.Invoke();
 
-            Start?.Invoke(this, new EventArgs());
+            while (isStarted)
+            {
+                Thread.Sleep(3000);
+                var directory = new DirectoryInfo(folder);
+                var filesNow = directory.EnumerateFiles().ToArray();
+                bool equal = files.SequenceEqual(filesNow, new FileInfoComparer);
+
+                if (!equal)
+                {
+                    IEnumerable<FileInfo> deletedFiles = files.Except(filesNow);
+                    IEnumerable<FileInfo> createdFiles = filesNow.Except(files);
+
+                    foreach (var file in deletedFiles)
+                    {
+                        FileWasDeleted(file.Name, file.FullName);
+                    }
+
+                    foreach (var file in createdFiles)
+                    {
+                        FileWasCreated(file.Name, file.FullName);
+                    }
+                }
+            }
         }
 
         public void SetFolderNameToWatch(string name)
         {
-            string folder = name;
-            fileSystemWatcher1.Path = folder;
+            folder = name;
         }
 
         public void StopFileWatcher()
         {
-            fileSystemWatcher1.EnableRaisingEvents = false;
-            fileSystemWatcher1.Changed -= new FileSystemEventHandler(FileWasChanged);
-            fileSystemWatcher1.Created -= new FileSystemEventHandler(FileWasCreated);
-            fileSystemWatcher1.Deleted -= new FileSystemEventHandler(FileWasDeleted);
-            fileSystemWatcher1.Error -= new ErrorEventHandler(FileSystemError);
-            fileSystemWatcher1.Renamed -= new RenamedEventHandler(FileWasRenamed);
-
-            Stop?.Invoke(this, new EventArgs());
+            /* fileSystemWatcher1.Created -= new FileSystemEventHandler(FileWasCreated);
+            fileSystemWatcher1.Deleted -= new FileSystemEventHandler(FileWasDeleted); */
+            isStarted = false;
+            Stop?.Invoke();
         }
 
-        public void Filter (string filter)
+        public void Filter (List<string> filter)
         {
-            fileSystemWatcher1.Filter = filter;
+            // fileSystemWatcher1.Filter = filter;
+            var directory = new DirectoryInfo(folder);
+            files = directory.EnumerateFiles().ToArray();
+            fileFilter = filter;
         }
 
-        private void FileWasChanged(object sender, FileSystemEventArgs e)
+
+        private void FileWasCreated(string name, string fullPath)
         {
-            LogWork.Invoke($"File {e.Name} was changed.\n Full path: {e.FullPath}");
+            LogWork.Invoke($"File {name} was created.\nFull path: {fullPath}");
         }
 
-        private void FileWasCreated(object sender, FileSystemEventArgs e)
+        private void FileWasDeleted(string name, string fullPath)
         {
-            LogWork.Invoke($"File {e.Name} was created.\nFull path: {e.FullPath}");
-        }
-
-        private void FileWasDeleted(object sender, FileSystemEventArgs e)
-        {
-            LogWork.Invoke($"File {e.Name} was deleted.\nFull path: {e.FullPath}");
-        }
-
-        private void FileSystemError(object sender, ErrorEventArgs e)
-        {
-            LogWork.Invoke($"Sorry, an error occurs during the file processing.\nError: {e.GetException()}");
-        }
-
-        private void FileWasRenamed(object sender, RenamedEventArgs e)
-        {
-            LogWork.Invoke($"File {e.Name} was renamed.\nFull path: {e.FullPath}");
+            LogWork.Invoke($"File {name} was deleted.\nFull path: {fullPath}");
         }
     }
 }

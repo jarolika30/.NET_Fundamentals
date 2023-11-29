@@ -20,8 +20,6 @@ namespace FileWatcherApp
         public Form2()
         {
             watcher = new FileWatcher();
-            watcher.Start += StartHandler;
-            watcher.Stop += StopHandler;
             fileFilter = new List<string>() { "*" };
             InitializeComponent();
         }
@@ -79,8 +77,11 @@ namespace FileWatcherApp
             if (!string.IsNullOrEmpty(folderName))
             {
                 watcher.SetFolderNameToWatch(folderName);
-                watcher.StartfileSystemWatcher();
+                watcher.Filter(fileFilter);
                 watcher.LogWork += fileChangeHandler;
+                watcher.Start += StartHandler;
+                watcher.Stop += StopHandler;
+                watcher.StartfileSystemWatcher();
             } else
             {
                 richTextBox1.Text += $"Please select the correct folder name...{Environment.NewLine}";
@@ -89,8 +90,10 @@ namespace FileWatcherApp
 
         private void button5_Click(object sender, EventArgs e)
         {
-            // richTextBox1.Text += $"You have stopped your FileWatcher... {Environment.NewLine}";
             watcher.StopFileWatcher();
+            watcher.Start -= StartHandler;
+            watcher.Stop -= StopHandler;
+            watcher.LogWork -= fileChangeHandler;
         }
 
         private void fileChangeHandler(string text)
@@ -98,12 +101,12 @@ namespace FileWatcherApp
             richTextBox1.Text += text;
         }
 
-        private void StopHandler(object sender, EventArgs e)
+        private void StopHandler()
         {
             richTextBox1.Text += $"You have stopped your FileWatcher... {Environment.NewLine}";
         }
 
-        private void StartHandler(object sender, EventArgs e)
+        private void StartHandler()
         {
             richTextBox1.Text += $"You have started your FileWatcher...{Environment.NewLine}";
         }
