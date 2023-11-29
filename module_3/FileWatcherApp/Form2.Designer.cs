@@ -83,10 +83,11 @@
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox1.Location = new System.Drawing.Point(57, 398);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(58, 29);
+            this.checkBox1.Size = new System.Drawing.Size(46, 29);
             this.checkBox1.TabIndex = 4;
-            this.checkBox1.Text = "*.*";
+            this.checkBox1.Text = "*";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // checkBox2
             // 
@@ -97,6 +98,7 @@
             this.checkBox2.TabIndex = 5;
             this.checkBox2.Text = "*.txt";
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // checkBox3
             // 
@@ -107,6 +109,7 @@
             this.checkBox3.TabIndex = 6;
             this.checkBox3.Text = "*.img, *.png, *.jpg, *.svg";
             this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // checkBox4
             // 
@@ -117,6 +120,7 @@
             this.checkBox4.TabIndex = 7;
             this.checkBox4.Text = "*.csv";
             this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
             // 
             // button3
             // 
