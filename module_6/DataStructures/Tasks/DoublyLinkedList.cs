@@ -7,41 +7,67 @@ namespace Tasks
 {
     public class DoublyLinkedList<T> : IDoublyLinkedList<T>
     {
-        public int Length => throw new NotImplementedException();
+        private List<T> list = new List<T>();
+        public int Length => list.Count;
 
         public void Add(T e)
         {
-            throw new NotImplementedException();
+            list.Add(e);
         }
 
         public void AddAt(int index, T e)
         {
-            throw new NotImplementedException();
+            list.Insert(index, e);
         }
 
         public T ElementAt(int index)
         {
-            throw new NotImplementedException();
+            T item;
+
+            try
+            {
+                item = list[index];
+            }
+            catch
+            {
+                throw new IndexOutOfRangeException();
+            }
+
+            return item;
         }
 
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            List<T>.Enumerator em = list.GetEnumerator();
+
+            return em;
         }
 
         public void Remove(T item)
         {
-            throw new NotImplementedException();
+            list.Remove(item);
         }
 
         public T RemoveAt(int index)
         {
-            throw new NotImplementedException();
+            T item;
+
+            try
+            {
+                item = list[index];
+                list.RemoveAt(index);
+            }
+            catch
+            {
+                throw new IndexOutOfRangeException();
+            }
+
+            return item;
         }
 
         IEnumerator IEnumerable.GetEnumerator()
         {
-            throw new NotImplementedException();
+            return list.GetEnumerator();
         }
     }
 }
