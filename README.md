@@ -54,3 +54,31 @@ A tracepoint is a breakpoint that prints a message to the Output window. A trace
 - What are debug and release build configurations?
 Visual Studio projects have separate release and debug configurations for the program. You build the debug version for debugging and the release version for the final release distribution. In debug configuration, your program compiles with full symbolic debug information and no optimization. Optimization complicates debugging, because the relationship between source code and generated instructions is more complex.
 The release configuration of your program has no symbolic debug information and is fully optimized.
+
+# Data structure
+- What is a Data Structure?  
+
+
+- What are the various operations that can be performed on different Data Structures?  
+
+
+- How is an Array different from Linked List?  
+
+
+- What is Stack and where can it be used? 
+
+
+- What is a Queue, how it is different from the stack and how is it implemented?  
+
+
+What is a Linked List and What are its types?  
+
+
+Which data structures C# have? 
+
+
+List C# collections features. 
+
+
+What is the algorithmic complexity of collections?  
+
