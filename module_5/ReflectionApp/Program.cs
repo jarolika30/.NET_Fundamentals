@@ -1,2 +1,12 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿namespace ReflectionApp
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+         
+            var config = new CustomConfigurationComponent();
+            config.LoadSettings();
+        }
+    }
+}
