@@ -8,7 +8,6 @@ namespace ReflectionApp
     public class ConfigurationManagerItem: Attribute
     {
         private string _propertyName;
-        private NameValueCollection appSettings;
 
         public string PropertyName
         {
@@ -21,12 +20,6 @@ namespace ReflectionApp
         public ConfigurationManagerItem(string propertyName)
         {
             _propertyName = propertyName;
-            appSettings = ConfigurationManager.AppSettings;
-        }
-
-        /* public string ReadConfigurationManagerItem(string keyName)
-        {
-            return appSettings.Get(keyName) ?? string.Empty;
         }
 
         public void AddUpdateAppSettings(string key, string value)
@@ -51,6 +44,6 @@ namespace ReflectionApp
             {
                 Console.WriteLine("Error writing app settings");
             }
-        } */
+        }
     }
 }
