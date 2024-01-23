@@ -11,6 +11,7 @@ namespace ReflectionApp
         private string _application;
         private double _amount;
         private int _files;
+        // string propertyFile = "./events.json";
         private string _jsonFile;
 
         [ConfigurationManagerItem("application")]

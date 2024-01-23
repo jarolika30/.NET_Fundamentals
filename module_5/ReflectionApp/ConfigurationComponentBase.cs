@@ -19,6 +19,13 @@ namespace ReflectionApp
             return currentObject.GetProperties().Where(property => property.GetCustomAttribute<ConfigurationManagerItem>() != null); ;
         }
 
+        private IEnumerable<PropertyInfo> getFileConfigurationItemProperties()
+        {
+            var currentObject = this.GetType();
+
+            return currentObject.GetProperties().Where(property => property.GetCustomAttribute<FileConfigurationItemAttribute>() != null); ;
+        }
+
         private List<string> getPropertyList(IEnumerable<PropertyInfo> propsInfo)
         {
             List<string> properties = new List<string>();
@@ -106,6 +113,24 @@ namespace ReflectionApp
             catch (ConfigurationErrorsException)
             {
                 Console.WriteLine("Error while saving the ConfigurationManagerItem properties");
+            }
+        }
+
+        public void LoadFilePropertiesInfo()
+        {
+            var propsToSet = getFileConfigurationItemProperties();
+            Console.WriteLine("Reading properties of FileConfigurationItem type are:");
+            foreach (PropertyInfo prop in propsToSet)
+            {
+                var fileAttr = prop.GetCustomAttribute<FileConfigurationItemAttribute>(false);
+                var propValue = prop.GetValue(this);
+
+                if (fileAttr != null)
+                {
+                    Console.WriteLine($"FileConfiguration property:{fileAttr.KeyName}");
+                    
+                    Console.WriteLine($"the property value'{propValue}'.");
+                }
             }
         }
 

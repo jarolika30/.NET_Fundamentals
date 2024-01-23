@@ -5,15 +5,7 @@
     "eventID": "T150727",
     "title": "The Kills",
     "description": "GENERAL ADMISSION STANDING\n\nPublic Onsale: Friday, February 13, 2015 at 9am",
-    "typeDescription": "",
-    "eventTypeID": "KILER2015",
-    "facilityID": "ELREY",
-    "imageURL": null,
-    "venueMapID": "ELREYGA1000",
-    "maxQty": 45,
-    "minQty": 1,
     "defaultQty": 2,
-    "stepQty": 1,
     "venueMapImage": "logo.png"
   }
 }

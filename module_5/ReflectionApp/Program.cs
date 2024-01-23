@@ -10,8 +10,10 @@
             config.Application = "reflection2";
             config.Amount = 2.23;
             config.Files = 77;
-            config.LoadSettings();
-            config.SaveSettings();
+            config.JsonFile = "./events.json";
+            //config.LoadSettings();
+            //config.SaveSettings();
+            config.LoadFilePropertiesInfo();
         }
     }
 }
