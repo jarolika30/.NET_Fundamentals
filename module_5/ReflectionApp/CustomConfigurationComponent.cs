@@ -11,6 +11,7 @@ namespace ReflectionApp
         private string _application;
         private double _amount;
         private int _files;
+        private string _jsonFile;
 
         [ConfigurationManagerItem("application")]
         public string Application {
@@ -48,6 +49,20 @@ namespace ReflectionApp
             set
             {
                 _files = value;
+            }
+        }
+
+        [FileConfigurationItemAttribute("file")]
+        public string JsonFile
+        {
+            get
+            {
+                return _jsonFile;
+            }
+
+            set
+            {
+                _jsonFile = value;
             }
         }
     }
