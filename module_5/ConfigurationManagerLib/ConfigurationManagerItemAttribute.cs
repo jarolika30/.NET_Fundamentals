@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Collections.Specialized;
 
-namespace ReflectionApp
+namespace ConfigurationManagerLib
 {
     [AttributeUsage(AttributeTargets.Property)]
     public class ConfigurationManagerItem: Attribute

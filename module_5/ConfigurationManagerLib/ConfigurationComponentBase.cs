@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Configuration;
 using System.Collections.Specialized;
 
-namespace ReflectionApp
+namespace ConfigurationManagerLib
 {
     public class ConfigurationComponentBase
     {

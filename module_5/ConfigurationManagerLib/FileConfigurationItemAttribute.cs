@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ReflectionApp
+namespace ConfigurationManagerLib
 {
     public class FileConfigurationItemAttribute: Attribute
     {
